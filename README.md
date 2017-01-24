@@ -135,7 +135,7 @@ The following is an example of the run-time instance based on the given example 
 As depicted above, instances contain both values and schema metadata.  The schema metadata increases the size of instances but facilitates the automation and high performance of bi-directional, "loss-less" transformations.
 
 
-
+Copyright (c) 2017 George Moyano (https://onename.com/gmoyano)
 
 
 
