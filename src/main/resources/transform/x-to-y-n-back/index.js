@@ -19,26 +19,27 @@ var mapping = new Mapping();
 console.log('##construct Jsonix context');
 // First we construct a Jsonix context - a factory for unmarshaller (parser) 
 // and marshaller (serializer) 
-var context = new Jsonix.Context(mapping.getModuleArray());
+var context = new Jsonix.Context(mapping.getModuleArray([]));
+//if (is_array(context)) {
+  //var context = new Jsonix.Context(mappingArray);  
+  // Then we create a unmarshaller 
+  var unmarshaller = context.createUnmarshaller();
+  // Unmarshal an object from the XML retrieved from the URL 
+  unmarshaller.unmarshalFile(xmlFile,
+      // This callback function will be provided 
+      // with the result of the unmarshalling 
+      function (unmarshalled) {
+          console.log('##read xml document file again to unmarshal a JSON object');
+          console.log('##output json object as a string');
+          var jsonString = JSON.stringify(unmarshalled);
+          console.log(jsonString);
+          console.log('##write json object to a file');
+          fs.writeFileSync(jsonFromXmlFile, jsonString);
+          marshalJsonAsXml();
+          done();
+      });
+//};
 
-//var context = new Jsonix.Context(mappingArray);  
-// Then we create a unmarshaller 
-var unmarshaller = context.createUnmarshaller();
-// Unmarshal an object from the XML retrieved from the URL 
-unmarshaller.unmarshalFile(xmlFile,
-    // This callback function will be provided 
-    // with the result of the unmarshalling 
-    function (unmarshalled) {
-        console.log('##read xml document file again to unmarshal a JSON object');
-        console.log('##output json object as a string');
-        var jsonString = JSON.stringify(unmarshalled);
-        console.log(jsonString);
-        console.log('##write json object to a file');
-        fs.writeFileSync(jsonFromXmlFile, jsonString);
-        marshalJsonAsXml();
-        done();
-    });
-    
 function marshalJsonAsXml () {
   console.log('##read json object file to marshal as an XML document');
   var jsonObjectBuffer = fs.readFileSync(jsonFromXmlFile);
@@ -49,10 +50,19 @@ function marshalJsonAsXml () {
   console.log(objectAsXMLString);
   console.log('##write xml marshalled from json object file');
   fs.writeFileSync(XmlFromJsonFile, objectAsXMLString);
-}
+};
+
+function is_array (value) {
+    if (value && typeof value === 'object' && value.constructor === Array)
+      return true;
+    else {
+      console.log('##ERROR: argument is not an Array');
+      return false;
+    };
+};
 
 function done() {
   console.log('#done');
-}
+};
 
 
