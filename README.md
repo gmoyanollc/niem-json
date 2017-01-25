@@ -1,4 +1,7 @@
-#[Getting Started](./src/main/resources/transform/x-to-y-n-back/README.md)
+#Getting Started
+
+  1. Open a terminal session in `./src/main/resources/transform/x-to-y-n-back`
+  2. Continue with step to install node dependencies as described in [Getting Started](./src/main/resources/transform/x-to-y-n-back/README.md)
 
 #Introduction
 The purpose of this evaluation is to determine whether Jsonix may contribute to a repeatable and interoperable approach for JSON NIEM-conformant information exchanges.  This approach covers both design-time and run-time patterns.

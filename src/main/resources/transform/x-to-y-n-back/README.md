@@ -4,7 +4,7 @@
   
   1. Copy files to an empty project folder.
   2. Open a terminal session in the project folder.
-  3. Install dependencies:
+  3. Install node dependencies:
 ```
     npm install
 ```
