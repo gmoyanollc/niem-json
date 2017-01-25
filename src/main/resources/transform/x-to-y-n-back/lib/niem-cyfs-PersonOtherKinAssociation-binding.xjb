@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jaxb:bindings 
+  version="2.1" 
+  xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+  xmlns:jsonix="http://jsonix.highsource.org/customizations"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+  jaxb:extensionBindingPrefixes="jsonix">
+
+  <!--<jaxb:bindings schemaLocation="../xml-schema/niem/domains/cyfs/3.2/cyfs.xsd" 
+    node="/xs:schema">
+    <!/-/- node="//xs:schema/xs:element[@name='PersonOtherKinAssociation']" -/-/>
+    <jaxb:schemaBindings>
+      <jaxb:package name="gov_niem_release_niem_domains_cyfs_3_2"/>
+    </jaxb:schemaBindings>
+    
+    <jsonix:module name="Cyfs">
+      <jsonix:mapping 
+        package="gov_niem_release_niem_domains_cyfs_3_2" 
+        name="Cyfs"/>
+      <jsonix:jsonSchema fileName="${module.name}.schema.json"/>
+    </jsonix:module>
+    
+  </jaxb:bindings>
+-->
+  <jaxb:bindings schemaLocation="../xml-schema/niem/domains/cyfs/3.2/cyfs.xsd" 
+    node="/xs:schema">
+    <jaxb:schemaBindings>
+      <jaxb:package name="gov_niem_release_niem_domains_cyfs_3_2"/>
+    </jaxb:schemaBindings>
+    
+    <jsonix:module name="Cyfs_PersonOtherKinAssociation">
+      <jsonix:mapping 
+        package="gov_niem_release_niem_domains_cyfs_3_2" 
+        name="Cyfs_PersonOtherKinAssociation">
+        <jsonix:includes>
+          <jsonix:element name="cyfs:PersonOtherKinAssociation" 
+            xmlns:cyfs="http://release.niem.gov/niem/domains/cyfs/3.2/"/>
+        </jsonix:includes>
+      </jsonix:mapping>
+      <!--<jsonix:dependencies-of-mapping name="Cyfs"/>-->
+      <jsonix:jsonSchema fileName="${module.name}.schema.json"/>
+    </jsonix:module>
+
+  </jaxb:bindings>
+      
+</jaxb:bindings>
